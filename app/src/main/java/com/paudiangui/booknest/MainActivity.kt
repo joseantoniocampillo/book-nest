@@ -33,6 +33,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.paudiangui.booknest.ui.navigation.Navigation
+import com.paudiangui.booknest.ui.screens.details.DetailsScreen
+import com.paudiangui.booknest.ui.screens.home.HomeScreen
 import com.paudiangui.booknest.ui.theme.BookNestTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,68 +43,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            BookNestTheme {
-                Surface {
-                    Home()
-                }
-            }
+            Navigation()
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview
-@Composable
-private fun Home() {
-    BookNestTheme {
-        Surface {
-            val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-            Scaffold(
-                topBar = {
-                TopAppBar(
-                    title = { Text(text = stringResource(id = R.string.app_name)) },
-
-                    )
-            },
-                modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-                contentWindowInsets = WindowInsets.safeDrawing
-            ) { padding ->
-                LazyVerticalGrid(
-                    columns = GridCells.Adaptive(120.dp),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    contentPadding = padding
-                ) {
-                    items(books) { book ->
-                        BookItem(book)
-
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun BookItem(book: Book) {
-    Column {
-        AsyncImage(
-            model = book.cover,
-            contentDescription = book.title,
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(2 / 3f)
-                .clip(MaterialTheme.shapes.small)
-        )
-        Text(
-            text = book.title,
-            style = MaterialTheme.typography.bodySmall,
-            maxLines = 1,
-            modifier = Modifier
-                .padding(horizontal = 8.dp)
-                .padding(vertical = 4.dp)
-        )
-    }
-
-}

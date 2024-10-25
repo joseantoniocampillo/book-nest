@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BookNest</string>
+    <string name="back">Go back</string>
+    <string name="about_description">About this book</string>
 </resources>
