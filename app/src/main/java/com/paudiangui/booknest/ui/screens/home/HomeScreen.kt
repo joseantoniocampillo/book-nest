@@ -25,9 +25,9 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.paudiangui.booknest.Book
+import com.paudiangui.booknest.data.Book
 import com.paudiangui.booknest.R
-import com.paudiangui.booknest.books
+import com.paudiangui.booknest.data.books
 import com.paudiangui.booknest.ui.theme.BookNestTheme
 
 @Composable

@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.paudiangui.booknest.books
+import com.paudiangui.booknest.data.books
 import com.paudiangui.booknest.ui.screens.details.DetailsScreen
 import com.paudiangui.booknest.ui.screens.home.HomeScreen
 

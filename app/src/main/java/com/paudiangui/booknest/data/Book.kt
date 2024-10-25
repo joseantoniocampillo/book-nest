@@ -1,4 +1,4 @@
-package com.paudiangui.booknest
+package com.paudiangui.booknest.data
 
 data class Book (
     val id: String,

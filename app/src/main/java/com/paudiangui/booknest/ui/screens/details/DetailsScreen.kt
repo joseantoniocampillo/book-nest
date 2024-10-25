@@ -28,14 +28,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.paudiangui.booknest.Book
+import com.paudiangui.booknest.data.Book
 import com.paudiangui.booknest.R
 import com.paudiangui.booknest.ui.screens.home.Screen
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailsScreen(book: Book ,onBack: () -> Unit) {
+fun DetailsScreen(book: Book, onBack: () -> Unit) {
 
     Screen {
         Scaffold(
