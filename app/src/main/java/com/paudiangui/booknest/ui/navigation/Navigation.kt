@@ -26,8 +26,8 @@ fun Navigation() {
         composable(
             "details/{bookId}",
             arguments =  listOf(navArgument("bookId") {type = NavType.StringType})
-        ){backStrackEntry ->
-            val bookId = requireNotNull(backStrackEntry.arguments?.getString("bookId"))
+        ){backStackEntry ->
+            val bookId = requireNotNull(backStackEntry.arguments?.getString("bookId"))
             DetailsScreen(
                 viewModel { DetailsViewModel(bookId) },
                 onBack = {navController.popBackStack()}

@@ -11,7 +11,7 @@ import retrofit2.create
 
 object BooksClient {
 
-    val okHttpClient = OkHttpClient.Builder()
+    private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(::apiKeyAsQuery)
         .build()
 
