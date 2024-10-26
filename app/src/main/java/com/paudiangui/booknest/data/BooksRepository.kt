@@ -1,12 +1,20 @@
 package com.paudiangui.booknest.data
 
-import kotlinx.coroutines.delay
-
 class BooksRepository {
 
-    suspend fun fetchPopularBooks(): List<Book> {
-        delay(2000)
-        return books
-    }
-
+    suspend fun fetchPopularBooks(): List<Book> =
+        BooksClient
+            .instance
+            .fetchPopularBooks()
+            .books
+            .map { it.toDomainModel() }
 }
+
+private fun RemoteBook.toDomainModel(): Book =
+    Book(
+        id = id,
+        title = volumeInfo.title,
+        author = volumeInfo.authors?.joinToString(", ") ?: "",
+        description = volumeInfo.description ?: "",
+        cover = volumeInfo.imageLinks?.thumbnail?.replace("http://", "https://") ?: ""
+    )

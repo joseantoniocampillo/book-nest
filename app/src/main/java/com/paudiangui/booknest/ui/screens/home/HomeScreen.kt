@@ -26,13 +26,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.paudiangui.booknest.R
 import com.paudiangui.booknest.data.Book
-import com.paudiangui.booknest.data.books
 import com.paudiangui.booknest.ui.theme.BookNestTheme
 
 @Composable
@@ -99,6 +99,7 @@ fun BookItem(book: Book, onClick: () -> Unit) {
         AsyncImage(
             model = book.cover,
             contentDescription = book.title,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(2 / 3f)
@@ -113,5 +114,4 @@ fun BookItem(book: Book, onClick: () -> Unit) {
                 .padding(vertical = 4.dp)
         )
     }
-
 }
