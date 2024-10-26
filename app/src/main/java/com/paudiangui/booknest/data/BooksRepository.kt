@@ -8,6 +8,12 @@ class BooksRepository {
             .fetchPopularBooks()
             .books
             .map { it.toDomainModel() }
+
+    suspend fun fetchBookById(id: String): Book =
+        BooksClient
+            .instance
+            .fetchBookById(id)
+            .toDomainModel()
 }
 
 private fun RemoteBook.toDomainModel(): Book =
