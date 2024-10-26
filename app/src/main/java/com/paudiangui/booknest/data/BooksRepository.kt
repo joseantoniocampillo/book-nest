@@ -1,5 +1,7 @@
 package com.paudiangui.booknest.data
 
+import com.paudiangui.booknest.utils.cleanHtmlFormat
+
 class BooksRepository {
 
     suspend fun fetchPopularBooks(): List<Book> =
@@ -21,6 +23,6 @@ private fun RemoteBook.toDomainModel(): Book =
         id = id,
         title = volumeInfo.title,
         author = volumeInfo.authors?.joinToString(", ") ?: "",
-        description = volumeInfo.description ?: "",
+        description = cleanHtmlFormat(volumeInfo.description?: "") ,
         cover = volumeInfo.imageLinks?.thumbnail?.replace("http://", "https://") ?: ""
     )
