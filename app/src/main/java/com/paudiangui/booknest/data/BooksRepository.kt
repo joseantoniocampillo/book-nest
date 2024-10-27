@@ -24,5 +24,5 @@ private fun RemoteBook.toDomainModel(): Book =
         title = volumeInfo.title,
         author = volumeInfo.authors?.joinToString(", ") ?: "",
         description = cleanHtmlFormat(volumeInfo.description?: "") ,
-        cover = volumeInfo.imageLinks?.thumbnail?.replace("http://", "https://") ?: ""
+        cover = volumeInfo.imageLinks?.thumbnail ?: ""
     )
